@@ -31,6 +31,25 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.patch('/:id', (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+
+  res.send({
+    id,
+    message: 'product updated',
+    data: body,
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  res.send({
+    id,
+    message: 'product deleted',
+  });
+});
+
 router.post('/', (req, res) => {
   const body = req.body;
   res.json({
