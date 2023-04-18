@@ -22,6 +22,14 @@ router.get('/filter', (req, res) => {
   res.send('Hi there!');
 });
 
+router.post('/', (req, res) => {
+  const body = req.body;
+  res.status(200).json({
+    message: 'product created',
+    data: body,
+  });
+});
+
 router.get('/:id', (req, res) => {
   const { id } = req.params;
   res.send({
@@ -35,7 +43,7 @@ router.patch('/:id', (req, res) => {
   const { id } = req.params;
   const body = req.body;
 
-  res.send({
+  res.status(201).json({
     id,
     message: 'product updated',
     data: body,
@@ -47,14 +55,6 @@ router.delete('/:id', (req, res) => {
   res.send({
     id,
     message: 'product deleted',
-  });
-});
-
-router.post('/', (req, res) => {
-  const body = req.body;
-  res.json({
-    message: 'product created',
-    data: body,
   });
 });
 
